@@ -97,15 +97,15 @@ function checkEmail(val, idErr) {
 }
 
 function checkID(arrVal, val, idErr) {
+    var value = val;
     var tb = document.querySelector(idErr);
     tb.innerHTML = "không được trùng với mã hiện có";
     for (var i = 0; i < arrVal.length; i++) {
-        if (val === arrVal[i]) {
+        if (arrVal[i] == value) {
             tb.style.display = "block";
             return false;
-        } else {
-            tb.style.display = "none";
-            return true;
         }
     }
+    tb.style.display = "none";
+    return true;
 }

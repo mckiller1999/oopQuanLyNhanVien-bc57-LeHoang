@@ -2,7 +2,7 @@
 var arrNhanVien = [];
 var arrMaNV = [];
 var arrTB = ["độ dài ký tự phải từ", "số tiền phải từ", "số giờ làm phải từ"];
-
+console.log(arrMaNV);
 document.querySelector("#btnThem").onclick = function() {
     document.querySelector("#btnCapNhat").disabled = true;
     document.querySelector("#btnThemNV").disabled = false;
@@ -55,7 +55,6 @@ document.querySelector("#btnThemNV").onclick = function() {
         ) &
         checkNum(nhanVien.tongGioLam, "#tbGiolamRendex", arrTB[2], "h", 80, 200);
 
-    var modalAl = document.querySelector("#modallAL");
     if (vaild != true) {
         //return giúp dừng lại hàm đang làm
         return;
@@ -237,13 +236,18 @@ function luuData() {
 //lấy data đã lưu ở localStorage
 function layData() {
     //lấy chuỗi vừa lưu trong local
+
+    var id = localStorage.getItem("mã nhân viên").split(",");
+    for (const ids of id) {
+        arrMaNV.push(ids);
+    }
+
     if (localStorage.getItem("dataNV")) {
-        var id = localStorage.getItem("mã nhân viên");
         var str = localStorage.getItem("dataNV");
 
         //xuất chuỗi thành dạng object
         arrNhanVien = JSON.parse(str);
-        arrMaNV.push(id);
+
         //add object vừa đổi vào mảng và xuất ra table
         tableNV(arrNhanVien);
     }
