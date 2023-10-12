@@ -75,6 +75,7 @@ document.querySelector("#btnThemNV").onclick = function() {
     //reset form sau khi nhấn add tránh tình trạng add dữ liệu liên tục
 
     document.querySelector("#formBody").reset();
+    location.reload();
 };
 
 function clearAL(id) {
@@ -224,6 +225,7 @@ document.querySelector("#btnCapNhat").onclick = function() {
     luuData();
     document.querySelector("#btnCapNhat").disabled = true;
     document.querySelector("#formBody").reset();
+    location.reload();
 };
 
 // lưu data vào localStorage
