@@ -1,29 +1,29 @@
 //tạo danh sách nhân viên
 function createTB(ob, index) {
-    ob.tongLuong = function() {
-        if (this.heSoLuong === 2) {
-            return this.luongCoBan * 2;
-        } else if (this.heSoLuong === 1) {
-            return this.luongCoBan * 3;
-        } else {
-            return this.luongCoBan;
-        }
-    };
-    ob.xepLoaiNV = function() {
-        var gioLam = this.tongGioLam;
-        var loai = "";
-        if (gioLam >= 192) {
-            loai = "xuất sắc";
-        } else if (gioLam >= 176) {
-            loai = "giỏi";
-        } else if (gioLam >= 160) {
-            loai = "khá";
-        } else {
-            loai = "trung bình";
-        }
-        return loai;
-    };
-    var tb = `
+  ob.tongLuong = function () {
+    if (this.heSoLuong === 2) {
+      return this.luongCoBan * 2;
+    } else if (this.heSoLuong === 1) {
+      return this.luongCoBan * 3;
+    } else {
+      return this.luongCoBan;
+    }
+  };
+  ob.xepLoaiNV = function () {
+    var gioLam = this.tongGioLam;
+    var loai = "";
+    if (gioLam >= 192) {
+      loai = "xuất sắc";
+    } else if (gioLam >= 176) {
+      loai = "giỏi";
+    } else if (gioLam >= 160) {
+      loai = "khá";
+    } else {
+      loai = "trung bình";
+    }
+    return loai;
+  };
+  var tb = `
       <tr >   
         <td>${ob.taiKhoan}</td>
         <td>${ob.hoTen}</td>
@@ -39,5 +39,5 @@ function createTB(ob, index) {
         </td>
       </tr>
       `;
-    return tb;
+  return tb;
 }
