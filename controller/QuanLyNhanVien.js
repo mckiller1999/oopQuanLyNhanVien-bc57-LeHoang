@@ -125,12 +125,15 @@ function xoaNV(idel) {
     var res = confirm("bạn có muốn xóa dữ liệu này không");
     if (res) {
         arrNhanVien.splice(idel, 1);
+        arrMaNV.splice(idel, 1);
         alert("xóa nhân viên thành công");
     }
     //tạo lại table nhân viên sau khi xóa
     tableNV(arrNhanVien);
+
     //lưu data
     luuData();
+    location.reload();
 }
 
 // sửa nhân viên
