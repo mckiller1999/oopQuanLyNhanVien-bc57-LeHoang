@@ -115,7 +115,7 @@ function tableNV(arrNV) {
   for (var i = 0; i < arrNV.length; i++) {
     var nv = arrNV[i];
 
-    output += createTB(nv, i);
+    output += createTB(nv, i, arrNV.taiKhoan);
   }
 
   document.querySelector("#tableDanhSach").innerHTML = output;
@@ -138,6 +138,21 @@ function xoaNV(idel) {
   luuData();
   location.reload();
 }
+
+// function xoaIDNV(taikhoan) {
+//   var idel = -1;
+//   for (var i = arrNhanVien.length - 1; i >= 0; i++) {
+//     if (arrNhanVien[i].taiKhoan === taikhoan) {
+//       arrNhanVien.splice(i, 1);
+//     }
+//   }
+//   //tìm thấy index của mã sinh viên sẽ tiến hành xóa
+//   // if (idel !== -1) {
+//   //   arrNhanVien.splice(idel, 1);
+//   //   alert("xóa nhân viên thành công");
+//   // }
+//   tableNV(arrNhanVien);
+// }
 
 // sửa nhân viên
 function suaNV(iedit) {
@@ -271,23 +286,12 @@ window.onload = function () {
 };
 
 // chức năng tìm kiếm theo xếp loại
+
 document.querySelector("#searching").onsubmit = function (a) {
   a.preventDefault();
 
   var keyWord = document.querySelector("#searchName").value;
   searching(keyWord);
-  var btnSua = document.querySelector("#suaNhanVien");
-  var btnXoa = document.querySelector("#xoaNhanVien");
-
-  for (var i = 0; i < arrNhanVien.length; i++) {
-    if (keyWord === "") {
-      btnSua[i].disabled = "true";
-      btnXoa[i].disabled = "true";
-    } else {
-      btnSua.disabled = "false";
-      btnXoa.disabled = "false";
-    }
-  }
 };
 
 function searching(e) {
@@ -301,5 +305,6 @@ function searching(e) {
       arrOutput.push(nv);
     }
   }
+
   tableNV(arrOutput);
 }

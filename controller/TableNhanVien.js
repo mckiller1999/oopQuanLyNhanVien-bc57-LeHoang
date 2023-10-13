@@ -1,5 +1,5 @@
 //tạo danh sách nhân viên
-function createTB(ob, index) {
+function createTB(ob, index, id) {
   ob.tongLuong = function () {
     if (this.heSoLuong === 2) {
       return this.luongCoBan * 2;
@@ -36,8 +36,14 @@ function createTB(ob, index) {
           <button class="btn btn-danger mb-2 mx-0" data-toggle="modal" data-target="#modalDel" id = 'xoaNhanVien' onclick="xoaNV('${index}')">Xóa</button>
           <button class="btn btn-warning mb-2" data-toggle="modal"
           data-target="#myModal" id = 'suaNhanVien' onclick="suaNV('${index}')">Sửa</button>
-        </td>
+         
+        
+          </td>
       </tr>
       `;
   return tb;
+}
+
+{
+  /* <button class="btn btn-info mb-2 mx-0"  id = 'xoaID' onclick="xoaIDNV('${id}')">Xóa theo mã</button> */
 }
