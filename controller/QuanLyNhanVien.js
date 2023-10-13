@@ -308,3 +308,21 @@ function searching(e) {
 
   tableNV(arrOutput);
 }
+
+//sắp xếp tăng dần
+
+function sapXep(tag, id) {
+  var attrOrder = tag.getAttribute("order");
+  if (attrOrder == "") {
+    attrOrder = "asc";
+  }
+  arrNhanVien = _.orderBy(arrNhanVien, [id], [attrOrder]);
+
+  if (attrOrder == "asc") {
+    tag.setAttribute("order", "desc");
+  } else {
+    tag.setAttribute("order", "asc");
+  }
+
+  tableNV(arrNhanVien);
+}
